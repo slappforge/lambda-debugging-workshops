@@ -9,7 +9,7 @@ to a pre-defined SQS queue.
 
 ### Setting the SQS URL
 
-For this to sample code to work, you need to have a SQS queue created in your AWS account. For that, log into the SQS 
+For this sample code to work, you need to have a SQS queue created in your AWS account. For that, log into the SQS 
 (Simple Queue Service) console of your AWS account and create a new SQS queue. After the queue is created, you can see 
 its **URL** and the **ARN** in the **Details** tab as below. Please note them down for later use.
 
