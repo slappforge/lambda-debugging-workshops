@@ -83,7 +83,7 @@ Click on the **Layers** button on the **Designer** section and choose to **Add a
 module.
 
 ```
-arn:aws:lambda:us-east-1:892904900711:layer:slappforge-lambda-debug-layer:2
+arn:aws:lambda:us-east-1:892904900711:layer:slappforge-debug-nodejs-1-0-0-build-01:1
 ```
 
 ![Adding Debug Proxy Layer](images/lambda-layer-config.png "Debug Proxy Layer")
