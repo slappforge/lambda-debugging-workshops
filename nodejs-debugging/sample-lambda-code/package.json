@@ -1,0 +1,15 @@
+{
+  "name": "nodejs-debug-sample",
+  "version": "1.0.0",
+  "description": "This is a sample lambda program to be used for demonstrating NodeJS based remote debugging",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "SLAppForge Inc.",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "aws-sdk": "^2.611.0"
+  }
+}
