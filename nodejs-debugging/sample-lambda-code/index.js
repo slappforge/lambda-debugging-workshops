@@ -22,5 +22,3 @@ exports.handler = async (event, context) => {
         throw new Error("Failed message sending");
     }
 };
-
-require('slappforge-lambda-debug-proxy');
