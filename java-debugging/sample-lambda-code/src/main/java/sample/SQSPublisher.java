@@ -1,6 +1,5 @@
 package sample;
 
-import com.amazonaws.regions.Regions;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.sqs.AmazonSQS;
 import com.amazonaws.services.sqs.AmazonSQSClientBuilder;
@@ -9,7 +8,7 @@ import com.amazonaws.services.sqs.model.SendMessageResult;
 
 public class SQSPublisher {
 
-    final String SQS_URL = "asankha-java-demo";
+    final String SQS_URL = "replace-with-your-queue-name";
 
     public String handleRequest(String input, Context context) {
 
