@@ -38,7 +38,7 @@ Login to the AWS Lambda Console and create a new Lambda function using Java 8 or
 
 ### Build and upload the code
 
-Once the Lambda function is created, scroll down to the **Function code** section and choose the **Code Entry Type** as **Upload a .zip file**. Then build the code using Maven (“mvn package”), and upload the resulting JAR artifact “java-debug-samples-1.0-SNAPSHOT.jar” created in the target directory, as the function zip file. Then set the **Handler** to “**sample.SQSPublisher::handleRequest**” and save the function.
+Build the `sample-lambda-code` project code using Maven (`mvn package`):
 
 ```
 asankha@ASANKHA-HP:~/code/java-debugging-workshop$ cd sample-lambda-code/
@@ -56,6 +56,13 @@ asankha@ASANKHA-HP:~/code/java-debugging-workshop/sample-lambda-code$ mvn packag
 [INFO] ------------------------------------------------------------------------
 asankha@ASANKHA-HP:~/code/java-debugging-workshop/sample-lambda-code$
 ```
+
+The build will produce a JAR artifact `java-debug-samples-1.0-SNAPSHOT.jar`, inside the `target` directory.
+
+Next, after the Lambda function is created and ready, scroll down to the **Function code** section of the AWS dashboard,
+choose the **Code Entry Type** as **Upload a .zip file**, and upload the above Maven artifact as the function zip file.
+
+Then set the **Handler** to **`sample.SQSPublisher::handleRequest`** and save the function.
 
 ### Grant SQS publish permission
 
