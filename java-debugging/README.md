@@ -15,11 +15,15 @@ This example shows how to setup a standard Java IDE - such as IntelliJ IDEA, Ecl
 
 ## 1. Clone the sample repository and set the SQS queue name
 
-First clone this repository to your local machine and open the sample-lambda-code sub-directory with your IDE. This directory contains a sample lambda function named SQSPublisher, which extracts a message from the Lambda event and then publishes it to a pre-defined SQS queue.
+First clone this repository to your local machine and open the `sample-lambda-code` sub-directory with your IDE.
+This directory contains a sample lambda function named `SQSPublisher`, which extracts a message from the Lambda event and then publishes it to a pre-defined SQS queue.
 
 ### Setting the SQS URL
 
-For this to sample to work, you need to have a SQS queue created in your AWS account. For that, log into the SQS (Simple Queue Service) console of your AWS account and create a new SQS queue. After the queue is created, set it into the SQS_URL variable at the top of the saSQSPublisher class. You may also use an existing queue for this exercise.
+For this to sample to work, you need to have a SQS queue created in your AWS account.
+For that, log into the SQS (Simple Queue Service) console of your AWS account and create a new SQS queue.
+After the queue is created, set it into the SQS_URL variable at the top of the `SQSPublisher` class.
+You may also use an existing queue for this exercise.
 
 ```
 final String SQS_URL = "asankha-java-demo";
@@ -57,7 +61,8 @@ asankha@ASANKHA-HP:~/code/java-debugging-workshop/sample-lambda-code$
 
 Since the Lambda function is supposed to publish messages to the SQS queue, SQS publishing permission should be granted to the Lambda execution role. For that, switch to the **Permissions** tab on the Lambda function console and click on the **Manage these permissions on the IAM console** link.
 
-Once the Lambda execution role is opened in the AWS IAM console, add a new inline policy by clicking on the Add Inline Policy link and set the following parameters.
+Once the Lambda execution role is opened in the AWS IAM console,
+add a new inline policy by clicking on the **Add Inline Policy** link and set the following parameters.
 
 | Parameter | Value |
 |-----------|--------|
@@ -67,13 +72,15 @@ Once the Lambda execution role is opened in the AWS IAM console, add a new inlin
 
 ![SQS Publish Permission](images/policy-editor.PNG "SQS Publish Permission")
 
-Then save the policy by giving it a name such as SQSWritePolicyAll, and then back in the Lambda function configuration you should be able to see this policy being applied, once you refresh your page.
+Then save the policy by giving it a name such as **SQSWritePolicyAll**,
+and then back in the Lambda function configuration you should be able to see this policy being applied, once you refresh your page.
 
 ![Effective Permission](images/effective-permission.PNG "Effective Permission")
 
 ### Create a test event
 
-To invoke the Lambda function, create a new Test Event on the Lambda console with a sample input string (e.g. “Hello World”) as shown below.
+To invoke the Lambda function, create a new **Test Event** on the Lambda console with a sample input string
+(e.g. `"Hello World"`) as shown below.
 
 ![Create Test Event](images/test-event.PNG "Create Test Event")
 
@@ -100,7 +107,8 @@ The following environment variables must be set for the Lambda function with the
 
 ### Setting the Layer and adjusting the timeout and memory
 
-Next select Layers and specify the SLAppForge Live Debug for AWS - Java layer by its ARN, which is the following, at the time of writing this document.
+Next select Layers and specify the **SLAppForge Live Debug for AWS - Java** layer by its ARN,
+which is the following, at the time of writing this document.
 
 **arn:aws:lambda:us-east-1:892904900711:layer:slappforge-debug-java-1-0-0-build-01:4**
 
@@ -116,7 +124,11 @@ Finally, set a reasonable timeout for the Lambda function, and assign it adequat
 
 ### Setting up the local IDE (IntelliJ IDEA)
 
-Download and extract the IDE Proxy component into a new directory, which can be downloaded as a Zip file from [here](https://downloads.slappforge.com/debug-java/ide-proxy.zip). Once extracted, you will find two scripts for Linux and Windows which can be executed. Edit the relevant script for your environment to have the same environment variables for SLAPP_KEY, SLAPP_SECRET and SLAPP_SESSION. When you execute the script afterwards, it should show that the proxy connected to the SLAppForge server, as shown below. 
+Download and extract the IDE Proxy component into a new directory, which can be downloaded as a Zip file from
+[here](https://downloads.slappforge.com/debug-java/ide-proxy.zip).
+Once extracted, you will find two scripts for Linux and Windows which can be executed.
+Edit the relevant script for your environment to have the same environment variables for `SLAPP_KEY`, `SLAPP_SECRET` and `SLAPP_SESSION`.
+When you execute the script afterwards, it should show that the proxy connected to the SLAppForge server, as shown below. 
 
 ```
 C:\Temp\ide-proxy>ide-proxy.bat
@@ -124,7 +136,8 @@ C:\Temp\ide-proxy>ide-proxy.bat
 06 Feb 2020 19:06:29,336 main Connected to SLAppForge Debug Server on port 9090!
 ```
 
-Next, define a Run/Debug configuration for your IDE for remote debugging. Set the Host to “localhost” and the port to “5005” - which might be default values for your IDE.
+Next, define a Run/Debug configuration for your IDE for remote debugging.
+Set the Host to `localhost` and the port to `5005` - which might be default values for your IDE.
 
 ![Run Configuration](images/idea-remote-debug.PNG "Run Configuration")
 
@@ -135,7 +148,9 @@ Set a breakpoint on the code, and start the debug session from your IDE. The IDE
 06 Feb 2020 19:18:56,028 ide-to-svr Ready for the Lambda function to start and connect..
 ```
 
-Now you can use the Test button from the Lambda console to trigger the function, and the IDE will stop at your breakpoint. Then you can view the local variable ‘message’ and change its value, say to “Hello Live Debug!”, step through, or resume the program to let it continue until end.
+Now you can use the **Test** button from the Lambda console to trigger the function, and the IDE will stop at your breakpoint.
+Then you can view the local variable `message` and change its value, say to `"Hello Live Debug!"`,
+step through, or resume the program to let it continue until end.
 
 ![Lambda function Live Debug](images/aws-remote-live-debug-breakpoint.PNG "Lambda function Live Debug")
 
@@ -143,90 +158,18 @@ You should now see a successful execution, with the log output similar to the fo
 
 ![Successful Log message](images/successful-log-message.PNG "Successful Log message")
 
-You can let the IDE remain connected to the Lambda function, and Test the function once again with a new request. Note that AWS Lambda runtime freezes the container executing your function as soon as it completes its execution. Hence, you might run into issues if you stop the debugging from your IDE, and try to connect back again. In such cases, simply set an environment variable, or change the existing value of one (e.g. creating an environment variable say SLAPP_DUMMY=xyz) which you could use for this purpose - to force a cold start. At the same time, you may want to restart the IDE proxy, so that everything can be started again clean.
+You can let the IDE remain connected to the Lambda function, and Test the function once again with a new request.
+Note that AWS Lambda runtime freezes the container executing your function as soon as it completes its execution.
+Hence, you might run into issues if you stop the debugging from your IDE, and try to connect back again.
+In such cases, simply set an environment variable, or change the existing value of one
+(e.g. creating an environment variable say `SLAPP_DUMMY=xyz`) which you could use for this purpose - to force a cold start.
+At the same time, you may want to restart the IDE proxy, so that everything can be started again clean.
 
 ## 4. Restoring the Lambda function back to its original state
 
-Since we did not have to perform any code changes to remotely debug the Lambda function, it’s easy to revert things back to how they were before. To turn off the Lambda function waiting to connect to a debugger, simply set the environment variable “**SLAPP_DISABLE**” to “**true**”. That should restore the Lambda function to a functionally equivalent deployment in just one step.
+Since we did not have to perform any code changes to remotely debug the Lambda function,
+it’s easy to revert things back to how they were before.
+To turn off the Lambda function waiting to connect to a debugger, simply set the environment variable **`SLAPP_DISABLE`** to **`true`**.
+That should restore the Lambda function to a functionally equivalent deployment in just one step.
 
 To restore the function to its native Java 8 or 11 performance optimized AWS runtime back again, simply remove the Layer we added for debugging, and optionally remove the environment variables, and restore any changes to the timeout and memory allocation, if any.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
