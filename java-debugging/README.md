@@ -112,7 +112,7 @@ The following environment variables must be set for the Lambda function with the
 
 ![Lambda Environment Variables](images/env-variables.PNG "Lambda Environment Variables")
 
-### Setting the Layer and adjusting the timeout and memory
+### Setting the Layer
 
 Next select Layers and specify the **SLAppForge Live Debug for AWS - Java** layer by its ARN,
 which is the following, at the time of writing this document.
@@ -121,9 +121,13 @@ which is the following, at the time of writing this document.
 
 ![Add Layer](images/add-layer.PNG "Add Layer")
 
-Then change the Runtime of the function from Java 8 or 11, to “Custom runtime”.
+### Changing the Lambda Runtime
+
+Then change the Runtime of the function from Java 8 or 11, to **Custom runtime**.
 
 ![Custom Runtime](images/custom-runtime.PNG "Custom Runtime")
+
+### Adjusting the timeout and memory
 
 Finally, set a reasonable timeout for the Lambda function, and assign it adequate memory, based on its needs  dependencies. The timeout should be adequate for the debugging session to be used - and might generally be in the range of a few minutes.
 
