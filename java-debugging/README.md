@@ -133,6 +133,8 @@ Finally, set a reasonable timeout for the Lambda function, and assign it adequat
 
 ![Set Timeout](images/set-timeout.PNG "Set Timeout")
 
+---
+
 ### Setting up the local IDE (IntelliJ IDEA)
 
 Download and extract the IDE Proxy component into a new directory, which can be downloaded as a Zip file from
