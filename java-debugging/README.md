@@ -117,7 +117,9 @@ The following environment variables must be set for the Lambda function with the
 Next select Layers and specify the **SLAppForge Live Debug for AWS - Java** layer by its ARN,
 which is the following, at the time of writing this document.
 
-**arn:aws:lambda:us-east-1:892904900711:layer:slappforge-debug-java-1-0-0-build-01:4**
+Java 8: **arn:aws:lambda:us-east-1:892904900711:layer:slappforge-debug-java-1-0-0-build-01:4**
+
+Java 11: **arn:aws:lambda:us-east-1:892904900711:layer:slappforge-debug-java-1-0-0-java11-build-01:1**
 
 ![Add Layer](images/add-layer.PNG "Add Layer")
 
