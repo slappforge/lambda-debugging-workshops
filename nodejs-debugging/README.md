@@ -179,6 +179,7 @@ NodeJS/Chrome** as the type from left side panel
 
 * Open the workspace containing the Lambda source code and add a new launch configuration similar to below. You can
 provide any name for the `name` field.
+Launch type: **Node.JS: Attach to Remote**.
 ```
 {
   "type": "node",
@@ -193,6 +194,8 @@ provide any name for the `name` field.
   ]
 }
 ```
+> Based on your VS Code version, the configuration fields may slightly vary.
+For example, in 1.46: launch config type = **Node.JS: Attach to Remote**; `type = pwa-node` and `outFiles` becomes `skipFiles`.
 * If your Lambda source code is in a sub directory of the current workspace, you have to append that sub path to the 
 `localRoot` field.
 ```

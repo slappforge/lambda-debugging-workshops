@@ -136,7 +136,7 @@ Download and extract the appropriate IDE Proxy component into a new directory:
 
 * [Download for **PyCharm**](http://downloads.slappforge.com/debug-python-pycharm/ide-proxy.zip)
 
-Once extracted, you will find two scripts for Linux and Windows which can be executed.
+Once extracted, you will find two startup scripts for Linux (`ide-proxy`) and Windows (`ide-proxy.bat`).
 Edit the relevant script for your environment to have the same environment variables for `SLAPP_KEY`, `SLAPP_SECRET` and `SLAPP_SESSION`.
 When you execute the script afterwards, it should show that the proxy connected to the SLAppForge server, as shown below. 
 
@@ -157,6 +157,7 @@ This is not an issue, and we will start it again in proper sequence during the a
 
 1. Open the project containing the Lambda source code and create a new **Run/Debug Configuration**
 selecting **Python Remote Debug** as the type from left side panel.
+(The configuration type may be named differently; e.g. **Python Debug Server**, in newer versions of PyCharm.)
 2. Provide a suitable name for the Run/Debug profile (or leave the default).
 3. Leave the default **Local host name** (`localhost`) and set **Port** to `9000`.
 4. Under **Path mappings**, add a new entry
@@ -172,16 +173,16 @@ to the relevant location of the deployed Lambda code file (remote path) under `/
 
 > Relative path of `index.py` should be identical under both "parent" paths that are specified in **Path mappings**:
 > * If your project has `index.py` at the project root, *local path* = `<project root>`; while
->   * *remote path* = `/var/task` if your zipfile has `index.py` at its root.
->   * *remote path* = `/var/task/sample_lambda_code` if your zipfile has `index.py` in a `sample_lambda_code` subdirectory.
+>   * *remote path* = `/var/task` if your zipfile had `index.py` at its root.
+>   * *remote path* = `/var/task/sample_lambda_code` if your zipfile had `index.py` in a `sample_lambda_code` subdirectory.
 > * Similarly, if your project has `index.py` in a `sample_lambda_code` subdirectory,
-> *local path* = `<project root>/sample_lambda_code`; *remote path* matches the previous example.
+> *local path* = `<project root>/sample_lambda_code`; derive *remote path* based on your zipfile, as in the previous example.
 
 
 ## 6. Run the Debugger
 
 1. Launch the debugger from the IDE.
-2. Start the **Local Client** providing the necessary parameters as mentioned in step 4.
+2. Run the **Local Client** (which you configured earlier in step 4).
 3. Invoke the Lambda with the previously created test event.
 4. In a few seconds, the debugger will show a successful connection,
 and the IDE will indicate a breakpoint hit in a utility file (`.../slappforge_debug_python_pycharm/__init__.py`).
