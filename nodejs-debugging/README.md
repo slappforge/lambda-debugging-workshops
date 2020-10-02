@@ -79,12 +79,28 @@ inside a directory (e.g.: `sample-lambda-code/index.js`), the handler name shoul
 ### Add the Lambda Debug Proxy Layer
 
 Click on the **Layers** button on the **Designer** section and choose to **Add a layer**. Then select 
-**Provide a layer version ARN** option and provide the below layer ARN which contains the `slappforge-lambda-debug-proxy` 
-module.
+**Provide a layer version ARN** option and provide the ARN of the **SLAppForge Live Debug for AWS - NodeJS** layer, which 
+contains the `slappforge-lambda-debug-proxy` module. Based on the region of the Lambda function, pick the correct layer 
+ARN from the below table.
 
-```
-arn:aws:lambda:us-east-1:892904900711:layer:slappforge-debug-nodejs-1-0-0-build-01:1
-```
+| Region | Layer ARN |
+|------|--------|
+| us-east-1 | `arn:aws:lambda:us-east-1:892904900711:layer:slappforge-debug-nodejs-1-0-0-build-01:1`
+| us-east-2 | `arn:aws:lambda:us-east-2:892904900711:layer:slappforge-debug-nodejs-1-0-0-build-01:1`
+| us-west-1 | `arn:aws:lambda:us-west-1:892904900711:layer:slappforge-debug-nodejs-1-0-0-build-01:1`
+| us-west-2 | `arn:aws:lambda:us-west-2:892904900711:layer:slappforge-debug-nodejs-1-0-0-build-01:1`
+| ap-south-1 | `arn:aws:lambda:ap-south-1:892904900711:layer:slappforge-debug-nodejs-1-0-0-build-01:1`
+| ap-northeast-1 | `arn:aws:lambda:ap-northeast-1:892904900711:layer:slappforge-debug-nodejs-1-0-0-build-01:1`
+| ap-northeast-2 | `arn:aws:lambda:ap-northeast-2:892904900711:layer:slappforge-debug-nodejs-1-0-0-build-01:1`
+| ap-southeast-1 | `arn:aws:lambda:ap-southeast-1:892904900711:layer:slappforge-debug-nodejs-1-0-0-build-01:1`
+| ap-southeast-2 | `arn:aws:lambda:ap-southeast-2:892904900711:layer:slappforge-debug-nodejs-1-0-0-build-01:1`
+| ca-central-1 | `arn:aws:lambda:ca-central-1:892904900711:layer:slappforge-debug-nodejs-1-0-0-build-01:1`
+| eu-central-1 | `arn:aws:lambda:eu-central-1:892904900711:layer:slappforge-debug-nodejs-1-0-0-build-01:1`
+| eu-west-1 | `arn:aws:lambda:eu-west-1:892904900711:layer:slappforge-debug-nodejs-1-0-0-build-01:1`
+| eu-west-2 | `arn:aws:lambda:eu-west-2:892904900711:layer:slappforge-debug-nodejs-1-0-0-build-01:1`
+| eu-west-3 | `arn:aws:lambda:eu-west-3:892904900711:layer:slappforge-debug-nodejs-1-0-0-build-01:1`
+| eu-north-1 | `arn:aws:lambda:eu-north-1:892904900711:layer:slappforge-debug-nodejs-1-0-0-build-01:1`
+| sa-east-1 | `arn:aws:lambda:sa-east-1:892904900711:layer:slappforge-debug-nodejs-1-0-0-build-01:1`
 
 ![Adding Debug Proxy Layer](images/lambda-layer-config.png "Debug Proxy Layer")
 

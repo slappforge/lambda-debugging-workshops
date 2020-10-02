@@ -114,12 +114,50 @@ The following environment variables must be set for the Lambda function with the
 
 ### Setting the Layer
 
-Next select Layers and specify the **SLAppForge Live Debug for AWS - Java** layer by its ARN,
-which is the following, at the time of writing this document.
+Next select Layers and specify the **SLAppForge Live Debug for AWS - Java** layer by its ARN. Based on the JRE version, 
+and the region of the Lambda function, pick the correct layer ARN from the below tables.
 
-Java 8: **arn:aws:lambda:us-east-1:892904900711:layer:slappforge-debug-java-1-0-0-build-01:4**
+#### Java 8
 
-Java 11: **arn:aws:lambda:us-east-1:892904900711:layer:slappforge-debug-java-1-0-0-java11-build-01:1**
+| Region | Layer ARN |
+|------|--------|
+| us-east-1 | `arn:aws:lambda:us-east-1:892904900711:layer:slappforge-debug-java-1-0-0-build-01:4`
+| us-east-2 | `arn:aws:lambda:us-east-2:892904900711:layer:slappforge-debug-java-1-0-0-build-01:1`
+| us-west-1 | `arn:aws:lambda:us-west-1:892904900711:layer:slappforge-debug-java-1-0-0-build-01:1`
+| us-west-2 | `arn:aws:lambda:us-west-2:892904900711:layer:slappforge-debug-java-1-0-0-build-01:1`
+| ap-south-1 | `arn:aws:lambda:ap-south-1:892904900711:layer:slappforge-debug-java-1-0-0-build-01:1`
+| ap-northeast-1 | `arn:aws:lambda:ap-northeast-1:892904900711:layer:slappforge-debug-java-1-0-0-build-01:1`
+| ap-northeast-2 | `arn:aws:lambda:ap-northeast-2:892904900711:layer:slappforge-debug-java-1-0-0-build-01:1`
+| ap-southeast-1 | `arn:aws:lambda:ap-southeast-1:892904900711:layer:slappforge-debug-java-1-0-0-build-01:1`
+| ap-southeast-2 | `arn:aws:lambda:ap-southeast-2:892904900711:layer:slappforge-debug-java-1-0-0-build-01:1`
+| ca-central-1 | `arn:aws:lambda:ca-central-1:892904900711:layer:slappforge-debug-java-1-0-0-build-01:1`
+| eu-central-1 | `arn:aws:lambda:eu-central-1:892904900711:layer:slappforge-debug-java-1-0-0-build-01:1`
+| eu-west-1 | `arn:aws:lambda:eu-west-1:892904900711:layer:slappforge-debug-java-1-0-0-build-01:1`
+| eu-west-2 | `arn:aws:lambda:eu-west-2:892904900711:layer:slappforge-debug-java-1-0-0-build-01:1`
+| eu-west-3 | `arn:aws:lambda:eu-west-3:892904900711:layer:slappforge-debug-java-1-0-0-build-01:1`
+| eu-north-1 | `arn:aws:lambda:eu-north-1:892904900711:layer:slappforge-debug-java-1-0-0-build-01:1`
+| sa-east-1 | `arn:aws:lambda:sa-east-1:892904900711:layer:slappforge-debug-java-1-0-0-build-01:1`
+
+#### Java 11
+
+| Region | Layer ARN |
+|------|--------|
+| us-east-1 | `arn:aws:lambda:us-east-1:892904900711:layer:slappforge-debug-java-1-0-0-java11-build-01:1	`
+| us-east-2 | `arn:aws:lambda:us-east-2:892904900711:layer:slappforge-debug-java-1-0-0-java11-build-01:1`
+| us-west-1 | `arn:aws:lambda:us-west-1:892904900711:layer:slappforge-debug-java-1-0-0-java11-build-01:1`
+| us-west-2 | `arn:aws:lambda:us-west-2:892904900711:layer:slappforge-debug-java-1-0-0-java11-build-01:1`
+| ap-south-1 | `arn:aws:lambda:ap-south-1:892904900711:layer:slappforge-debug-java-1-0-0-java11-build-01:1`
+| ap-northeast-2 | `arn:aws:lambda:ap-northeast-2:892904900711:layer:slappforge-debug-java-1-0-0-java11-build-01:1`
+| ap-southeast-1 | `arn:aws:lambda:ap-southeast-1:892904900711:layer:slappforge-debug-java-1-0-0-java11-build-01:1`
+| ap-southeast-2 | `arn:aws:lambda:ap-southeast-2:892904900711:layer:slappforge-debug-java-1-0-0-java11-build-01:1`
+| ap-northeast-1 | `arn:aws:lambda:ap-northeast-1:892904900711:layer:slappforge-debug-java-1-0-0-java11-build-01:1`
+| ca-central-1 | `arn:aws:lambda:ca-central-1:892904900711:layer:slappforge-debug-java-1-0-0-java11-build-01:1`
+| eu-central-1 | `arn:aws:lambda:eu-central-1:892904900711:layer:slappforge-debug-java-1-0-0-java11-build-01:1`
+| eu-west-1 | `arn:aws:lambda:eu-west-1:892904900711:layer:slappforge-debug-java-1-0-0-java11-build-01:1`
+| eu-west-2 | `arn:aws:lambda:eu-west-2:892904900711:layer:slappforge-debug-java-1-0-0-java11-build-01:1`
+| eu-west-3 | `arn:aws:lambda:eu-west-3:892904900711:layer:slappforge-debug-java-1-0-0-java11-build-01:1`
+| eu-north-1 | `arn:aws:lambda:eu-north-1:892904900711:layer:slappforge-debug-java-1-0-0-java11-build-01:1`
+| sa-east-1 | `arn:aws:lambda:sa-east-1:892904900711:layer:slappforge-debug-java-1-0-0-java11-build-01:1`
 
 ![Add Layer](images/add-layer.PNG "Add Layer")
 
